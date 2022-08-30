@@ -17,7 +17,7 @@ module.exports = async function ({ getNamedAccounts, deployments }) {
         const vrfAddress = await ethers.getContract("VRFCoordinatorV2Mock")
         vrfCoordinator = vrfAddress.address
         const transactionResponse = await vrfAddress.createSubscription()
-        const transactionReceipt = await transactionResponse.wait(1)
+        const transactionReceipt = await transactionResponse.wait()
         subscriptionId = transactionReceipt.events[0].args.subId
         await vrfAddress.fundSubscription(subscriptionId, VRF_SUB_FUND_AMOUNT)
     } else {
