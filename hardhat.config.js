@@ -55,7 +55,20 @@ module.exports = {
         },
     },
     etherscan: {
-        apiKey: ETHERSCAN_API_KEY,
+        apiKey: {
+            rinkeby: ETHERSCAN_API_KEY,
+            goerli: ETHERSCAN_API_KEY,
+        },
+        // customChains: [
+        //     {
+        //         network: "rinkeby",
+        //         chainId: 4,
+        //         urls: {
+        //             apiURL: "https://api-rinkeby.etherscan.io/api",
+        //             browserURL: "https://rinkeby.etherscan.io",
+        //         },
+        //     },
+        // ],
     },
     mocha: {
         timeout: 300000,
